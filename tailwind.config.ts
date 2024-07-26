@@ -8,13 +8,28 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+          main: '#B5BDAC',
+          accent: '#4C5B3A',
+          accent2: '#392E26',
+          bg: '#F5F2ED',
+          textbk: '#333333',
       },
-    },
+      backfaceVisibility: {
+        'backface-hidden': '-webkit-backface-visibility: hidden; backface-visibility: hidden;',
+      }
+    }
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.backface-hidden': {
+          '-webkit-backface-visibility': 'hidden',
+          'backface-visibility': 'hidden',
+        },
+      }
+      addUtilities(newUtilities)
+    }
+  ],
 };
 export default config;
