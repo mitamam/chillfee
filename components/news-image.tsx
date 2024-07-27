@@ -1,7 +1,7 @@
 import {useState, Fragment} from 'react'
 
 import Image from 'next/image'
-import {XMarkIcon, ChevronDownIcon} from '@heroicons/react/24/solid'
+import {XMarkIcon, EllipsisHorizontalIcon} from '@heroicons/react/24/solid'
 
 import {Dialog, DialogPanel, Transition, TransitionChild} from '@headlessui/react'
 
@@ -17,29 +17,35 @@ const options = [
   {value: 'large', name: '大'},
 ]
 
-export default function NewsImage(props: any) {
-  const smallSize = ImageSizes.Small
-  const mediumSize = ImageSizes.Medium
-  const largeSize = ImageSizes.Large
+const sizeOptions = {
+  small: ImageSizes.Small,
+  medium: ImageSizes.Medium,
+  large: ImageSizes.Large
+}
 
+export default function NewsImage(props: any) {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
   const [isDropDownOpen, setIsDropDownOpen] = useState(false)
-  const [selectedOption, setSelectedOption] = useState({value: 'small', name: '小'})
+  const [selectedOption, setSelectedOption] = useState('small')
+  const [selectedSizeOption, setSelectedSizeOption] = useState(sizeOptions.small)
 
   const handleDeleteImage = () => {
-    props.onDelete(props.index)
+    props.onDelete(props.key)
     setIsDeleteDialogOpen(false)
   }
 
-  const handleOptionClick = (option: {value: string, name: string}) => {
-    setSelectedOption(option)
+  const handleRadioChange = (event) => {
+    const selected = event.target.value
+    setSelectedOption(selected)
+    setSelectedSizeOption(sizeOptions[selected])
+    setIsDropDownOpen(false)
   }
   const toggleDropDown = () => {
     setIsDropDownOpen(!isDropDownOpen)
   }
 
   return (
-    <div style={{width: smallSize[0]}} key={props.index} className="my-4 mx-auto">
+    <div style={{width: selectedSizeOption[0]}} key={props.key} className="my-4 mx-auto">
       <div className="relative">
         {/* 画像の削除ボタン */}
         <button
@@ -82,25 +88,27 @@ export default function NewsImage(props: any) {
         </Transition>
         {/* 画像のサイズ変更ボタン */}
         <button type="button" className="z-10 absolute left-0 p-1 bg-white/50 rounded-full" onClick={toggleDropDown}>
-          <ChevronDownIcon className="h-4 w-4"></ChevronDownIcon>
+          <EllipsisHorizontalIcon className="h-4 w-4"></EllipsisHorizontalIcon>
         </button>
         {isDropDownOpen && (
-          <div>
+          <ul className="z-10 absolute left-1 top-7 bg-white/70 rounded-md">
             {options.map((option) => (
-              <div>
-                <label htmlFor={`${option.value}${props.index}`}>{option.name}</label>
+              <li>
+                <label htmlFor={`${option.value}${props.id}`} className='block text-sm hover:bg-accent2 hover:text-white py-1 px-2 rounded-sm'>{option.name}</label>
                 <input
                   type="radio"
                   value={option.value}
-                  id={`${option.value}${props.index}`}
-                  name={`image${props.index}-size`}
-                  onClick={() => handleOptionClick(option)}
+                  id={`${option.value}${props.id}`}
+                  name={`image${props.id}-size`}
+                  checked={selectedOption === option.value}
+                  onChange={handleRadioChange}
+                  className='hidden'
                 />
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
-        <div style={{width: '100%', paddingTop: smallSize[1]}} className="relative overflow-hidden">
+        <div style={{width: '100%', paddingTop: selectedSizeOption[1]}} className="relative overflow-hidden">
           <Image src={props.src} alt={`Content ${props.index}`} layout="fill" objectFit="cover" />
         </div>
       </div>

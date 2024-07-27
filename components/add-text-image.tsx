@@ -1,8 +1,11 @@
 import {useState, ChangeEvent} from 'react'
+import {v4 as uuidv4} from 'uuid'
 
+import NewsText from '@/components/news-text'
 import NewsImage from '@/components/news-image'
 
 interface Element {
+  id: string
   type: string
   content: any
 }
@@ -11,7 +14,7 @@ export default function AddTextImage() {
   const [elements, setElements] = useState<Element[]>([])
 
   const addTextarea = () => {
-    setElements([...elements, {type: 'textarea', content: ''}])
+    setElements([...elements, {id: uuidv4(), type: 'textarea', content: ''}])
   }
 
   const addImage = (event: ChangeEvent<HTMLInputElement>) => {
@@ -20,40 +23,41 @@ export default function AddTextImage() {
     if (file) {
       const reader = new FileReader()
       reader.onloadend = () => {
-        setElements([...elements, {type: 'image', content: reader.result}])
+        setElements([...elements, {id: uuidv4(), type: 'image', content: reader.result}])
       }
       reader.readAsDataURL(file)
     }
   }
 
-  const handleTextareaChange = (index: number, event: ChangeEvent<HTMLTextAreaElement>) => {
-    const newElements = [...elements]
-    newElements[index].content = event.target.value
+  const handleTextareaChange = (id: string, event: ChangeEvent<HTMLTextAreaElement>) => {
+    const newElements = elements.map((element) =>
+      element.id === id ? {...element, content: event.target.value} : element
+    )
+    // Todo: 後で削除
+    console.log(`${newElements.find((element) => element.id === id)?.content}`)
     setElements(newElements)
   }
 
-  const handleDeleteImage = (index: number) => {
-    const newElements = elements.filter((_, i) => i !== index)
+  const handleDeleteElement = (id: string) => {
+    const newElements = elements.filter((element) => element.id !== id)
     setElements(newElements)
   }
 
   return (
     <>
-      {elements.map((element, index) => {
+      {elements.map((element) => {
         if (element.type == 'textarea') {
           return (
-            <textarea
-              key={index}
-              value={element.content}
-              onChange={(e) => handleTextareaChange(index, e)}
-              className="mt-3 py-2 px-4 w-full block text-base border border-accent2 rounded-md outline-none placeholder:text-textbk/20"
-              name="content"
-              id="content"
-              rows={5}
+            <NewsText
+              key={element.id}
+              id={element.id}
+              content={element.content}
+              onChange={handleTextareaChange}
+              onDelete={handleDeleteElement}
             />
           )
         } else if (element.type == 'image') {
-          return <NewsImage key={index} src={element.content} index={index} onDelete={handleDeleteImage} />
+          return <NewsImage key={element.id} id={element.id} src={element.content} onDelete={handleDeleteElement} />
         }
         return null
       })}

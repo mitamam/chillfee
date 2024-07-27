@@ -28,13 +28,9 @@ export default function Page() {
             <UploadImageButton width="50%" height="100%" id="thumbnail-img" />
             <h2 className="mt-6 block text-base">ヘッダー画像</h2>
             <UploadImageButton id="header-img" width="100%" height="50%" />
-            <label className="mt-6 block text-base" htmlFor="content">
-              本文
-            </label>
+            <h2 className="mt-6 block text-base">本文</h2>
             <AddTextImage></AddTextImage>
-            <label className="mt-6 block text-base" htmlFor="open-time">
-              公開期間
-            </label>
+            <h2 className="mt-6 block text-base">公開期間</h2>
             <div className="flex items-center gap-2">
               <input
                 className="mt-2 py-2 px-4 block text-base border border-accent2 rounded-md outline-none"
