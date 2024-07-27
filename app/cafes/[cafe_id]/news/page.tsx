@@ -17,7 +17,7 @@ export default function Page() {
       <main className="bg-bg">
         <div className="mx-auto max-w-5xl pt-24 px-5 lg:px-8 pb-8 sm:pb-14 lg:pb-20">
           <h2 className="text-xl font-bold mt-10 lg:mt-14">新着情報</h2>
-          <ul className="mt-10 flex flex-wrap gap-x-4 gap-y-6 lg:gap-x-8 lg:gap-y-10">
+          <ul className="my-10 flex flex-wrap gap-x-4 gap-y-6 lg:gap-x-8 lg:gap-y-10">
             {Array.from({length: 7}, (_, index) => (
               <li className="w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] md:w-[calc(25%-12px)] lg:w-[calc(25%-24px)] border border-accent2">
                 <Link href="/cafes/1/news/1" className="block p-4 lg:p-6">

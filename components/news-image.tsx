@@ -26,9 +26,8 @@ export default function NewsImage(props: any) {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState({value: 'small', name: '小'})
 
-  // 親にどうやって削除するelementを渡したらいいのかわからない
-  const handleDeleteImage = (content: any) => {
-    setElements((prevElements) => prevElements.filter((element) => src !== content))
+  const handleDeleteImage = () => {
+    props.onDelete(props.index)
     setIsDeleteDialogOpen(false)
   }
 
@@ -71,7 +70,7 @@ export default function NewsImage(props: any) {
                     キャンセル
                   </button>
                   <button
-                    onClick={() => handleDeleteImage(props.src)}
+                    onClick={handleDeleteImage}
                     className="py-2 px-6 text-base bg-accent border border-accent text-white rounded-full"
                   >
                     削除
@@ -95,7 +94,7 @@ export default function NewsImage(props: any) {
                   value={option.value}
                   id={`${option.value}${props.index}`}
                   name={`image${props.index}-size`}
-                  onClick={handleOptionClick(option)}
+                  onClick={() => handleOptionClick(option)}
                 />
               </div>
             ))}

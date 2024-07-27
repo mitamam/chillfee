@@ -8,7 +8,6 @@ interface Element {
 }
 
 export default function AddTextImage() {
-
   const [elements, setElements] = useState<Element[]>([])
 
   const addTextarea = () => {
@@ -33,6 +32,11 @@ export default function AddTextImage() {
     setElements(newElements)
   }
 
+  const handleDeleteImage = (index: number) => {
+    const newElements = elements.filter((_, i) => i !== index)
+    setElements(newElements)
+  }
+
   return (
     <>
       {elements.map((element, index) => {
@@ -49,9 +53,7 @@ export default function AddTextImage() {
             />
           )
         } else if (element.type == 'image') {
-          return (
-            <NewsImage src={element.content} index={index}></NewsImage>
-          )
+          return <NewsImage key={index} src={element.content} index={index} onDelete={handleDeleteImage} />
         }
         return null
       })}
