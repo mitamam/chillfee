@@ -17,6 +17,7 @@ import testImage from '@/public/45f7044d45f7155c58f5aede2eddc83e.jpg'
 import userIcon from '@/public/user_icon.jpg'
 import ReportButton from '@/components/report-button'
 import FavoriteButton from '@/components/favorite-button'
+import WriteReviewButton from '@/components/write-review-button'
 
 export default function Page() {
   const [emblaRef, emblaApi] = useEmblaCarousel({loop: true})
@@ -50,7 +51,7 @@ export default function Page() {
       <Header />
       <main className="bg-bg">
         <div className="mx-auto max-w-7xl pt-24 px-5 lg:px-8 pb-8 sm:pb-14 lg:pb-20">
-          <div className='flex justify-end'>
+          <div className="flex justify-end">
             <Link
               href="/cafes/1/edit"
               className="text-sm mt-5 lg:mt-7 inline-block py-1 px-3 border rounded-full border-accent2"
@@ -106,11 +107,14 @@ export default function Page() {
 
               {/* review */}
               <div>
-                <div className="flex items-center justify-between mt-14 lg:mt-20">
-                  <h2 className="text-xl font-bold">クチコミ</h2>
-                  <SeeMoreButton href="/cafes/1/reviews"></SeeMoreButton>
+                <div className="mt-14 lg:mt-20">
+                  <h2 className="text-xl font-bold mb-8">クチコミ</h2>
+                  <div className="flex items-center justify-between">
+                    <WriteReviewButton></WriteReviewButton>
+                    <SeeMoreButton href="/cafes/1/review"></SeeMoreButton>
+                  </div>
                 </div>
-                <ul className="flex justify-between gap-4 flex-col mt-8">
+                <ul className="flex justify-between gap-4 flex-col mt-4">
                   {/* 実装時削除↓ */}
                   {Array.from({length: 2}, (_, index) => (
                     <li className="border border-accent2 flex flex-col">
