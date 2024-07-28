@@ -12,6 +12,7 @@ interface Element {
 
 export default function AddTextImage() {
   const [elements, setElements] = useState<Element[]>([])
+  const [textContent, setTextContent] = useState('')
 
   const addTextarea = () => {
     setElements([...elements, {id: uuidv4(), type: 'textarea', content: ''}])
@@ -29,12 +30,10 @@ export default function AddTextImage() {
     }
   }
 
-  const handleTextareaChange = (id: string, event: ChangeEvent<HTMLTextAreaElement>) => {
+  const handleTextareaChange = (id: string) => {
     const newElements = elements.map((element) =>
-      element.id === id ? {...element, content: event.target.value} : element
+      element.id === id ? {...element, content: textContent} : element
     )
-    // Todo: 後で削除
-    console.log(`${newElements.find((element) => element.id === id)?.content}`)
     setElements(newElements)
   }
 
@@ -52,6 +51,7 @@ export default function AddTextImage() {
               key={element.id}
               id={element.id}
               content={element.content}
+              setContent={setTextContent}
               onChange={handleTextareaChange}
               onDelete={handleDeleteElement}
             />

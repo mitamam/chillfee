@@ -8,23 +8,24 @@ export default function NewsText(props: any) {
   const [postContent, setPostContent] = useState(props.content)
 
   const handleTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    props.onChange(props.key)
+    props.setContent(e.target.value)
+    props.onChange(props.id)
     setPostContent(e.target.value)
   }
 
   const handleDeleteText = () => {
-    props.onDelete(props.key)
+    props.onDelete(props.id)
     setIsDeleteDialogOpen(false)
   }
 
   return (
-    <div key={props.key} className="flex items-start">
+    <div className="flex items-start">
       <textarea
         value={postContent}
         onChange={handleTextareaChange}
         className="mt-3 py-2 px-4 w-full block text-base border border-accent2 rounded-md outline-none placeholder:text-textbk/20"
-        name={`${props.key}-content`}
-        id={`${props.key}-content`}
+        name={`${props.id}-content`}
+        id={`${props.id}-content`}
         rows={5}
       />
       {/* 画像の削除ボタン */}

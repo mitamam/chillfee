@@ -30,7 +30,7 @@ export default function NewsImage(props: any) {
   const [selectedSizeOption, setSelectedSizeOption] = useState(sizeOptions.small)
 
   const handleDeleteImage = () => {
-    props.onDelete(props.key)
+    props.onDelete(props.id)
     setIsDeleteDialogOpen(false)
   }
 
@@ -45,7 +45,7 @@ export default function NewsImage(props: any) {
   }
 
   return (
-    <div style={{width: selectedSizeOption[0]}} key={props.key} className="my-4 mx-auto">
+    <div style={{width: selectedSizeOption[0]}} className="my-4 mx-auto">
       <div className="relative">
         {/* 画像の削除ボタン */}
         <button
@@ -92,8 +92,8 @@ export default function NewsImage(props: any) {
         </button>
         {isDropDownOpen && (
           <ul className="z-10 absolute left-1 top-7 bg-white/70 rounded-md">
-            {options.map((option) => (
-              <li>
+            {options.map((option, index) => (
+              <li key={index}>
                 <label htmlFor={`${option.value}${props.id}`} className='block text-sm hover:bg-accent2 hover:text-white py-1 px-2 rounded-sm'>{option.name}</label>
                 <input
                   type="radio"
