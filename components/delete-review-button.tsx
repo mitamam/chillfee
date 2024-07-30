@@ -1,18 +1,22 @@
 import {useState, Fragment} from 'react'
 
 import {Dialog, DialogPanel, DialogTitle, Transition, TransitionChild} from '@headlessui/react'
-import {TrashIcon, StarIcon} from '@heroicons/react/24/outline'
+import {StarIcon} from '@heroicons/react/24/outline'
 
 export default function DeleteReviewButton() {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
 
   return (
     <>
-      <button type="button" onClick={() => setIsDeleteDialogOpen(true)}>
-        <TrashIcon className="h-4 w-4 text-textbk/30" />
+      <button
+        type="button"
+        className="block hover:bg-accent2 hover:text-bg text-sm py-1 px-2"
+        onClick={() => setIsDeleteDialogOpen(true)}
+      >
+        クチコミを削除
       </button>
       <Transition show={isDeleteDialogOpen} as={Fragment}>
-        <Dialog onClose={() => setIsDeleteDialogOpen(false)} className="relative z-50">
+        <Dialog open={isDeleteDialogOpen} onClose={() => setIsDeleteDialogOpen(false)} className="relative z-10">
           <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
             <TransitionChild
               as={Fragment}
@@ -30,16 +34,18 @@ export default function DeleteReviewButton() {
                   <br />
                   削除されたクチコミは復元できません。
                 </p>
-                <div>
-                  <h4 className="text-base font-bold mb-1">評価</h4>
-                  <div className="flex items-center gap-0.5 mb-4">
-                    {Array.from({length: 5}, (_, index) => (
-                      <StarIcon className="h-5 w-5 text-textbk/30"></StarIcon>
-                    ))}
-                    <span className="text-sm ml-1 font-bold">3.5</span>
+                <div className='bg-accent2/5 rounded-md text-left p-4'>
+                  <div className="flex items-center">
+                    <span className="mr-2 block text-xs text-textbk/40">2024/1/1</span>
+                    <div className="flex items-center gap-0.5">
+                      {Array.from({length: 5}, (_, index) => (
+                        <StarIcon key={index} className="h-4 w-4 text-textbk/30"></StarIcon>
+                      ))}
+                    </div>
                   </div>
-                  <h4 className="text-base font-bold mb-1">内容</h4>
-                  <p className="text-base">クチコミの内容</p>
+                  <p className="mt-3 text-sm">
+                    これは口コミの内容です。これは口コミの内容です。これは口コミの内容です。これは口コミの内容です。
+                  </p>
                 </div>
                 <button
                   type="button"

@@ -15,7 +15,7 @@ export default function Header({bg = 'bg', display = 'fixed'}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className={`${display} w-full border-b z-10 border-accent2 bg-${bg}`}>
+    <header className={`${display} w-full border-b z-50 border-accent2 bg-${bg}`}>
       <nav
         className="mx-auto w-full flex gap-8 max-w-7xl items-center justify-between p-5 lg:px-8"
         aria-label="グローバル"

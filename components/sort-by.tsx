@@ -33,7 +33,7 @@ export default function SortBy({id = '', options = ['新着順']}) {
               <MenuItems anchor="bottom end" className="border border-accent2 mt-1">
                 {options.map((option, index) => (
                   <MenuItem key={index}>
-                    <button onClick={() => setSelectedOption(option)} className="flex items-center w-full px-3 bg-bg hover:bg-accent2 hover:text-bg">
+                    <button onClick={() => setSelectedOption(option)} className="flex items-center w-full px-3 ">
                       <span className="block text-base py-2">
                         {option}
                       </span>
