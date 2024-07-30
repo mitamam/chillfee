@@ -3,7 +3,6 @@ import Image from 'next/image'
 import UserImage from '@/public/user_icon.jpg'
 import {
   ChatBubbleOvalLeftEllipsisIcon,
-  Cog6ToothIcon,
   BuildingStorefrontIcon,
   UserIcon,
   CreditCardIcon,
@@ -32,10 +31,10 @@ export default function UserMenu({className = ''}) {
             <UserIcon className="h-6 w-6 text-accent2 text-nowrap"></UserIcon>
           </UserMenuItem>
           {/* personal account */}
-          <UserMenuItem href="/mypage/favorites" name="お気に入り">
+          <UserMenuItem href="/mypage/bookmarks" name="お気に入り">
             <HeartIcon className="h-6 w-6 text-accent2"></HeartIcon>
           </UserMenuItem>
-          <UserMenuItem href="/mypage/reviews" name="投稿したクチコミ">
+          <UserMenuItem href="/mypage/review" name="投稿したクチコミ">
             <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6 text-accent2"></ChatBubbleOvalLeftEllipsisIcon>
           </UserMenuItem>
           {/* / personal account */}
@@ -47,9 +46,6 @@ export default function UserMenu({className = ''}) {
             <CreditCardIcon className="h-6 w-6 text-accent2"></CreditCardIcon>
           </UserMenuItem>
           {/* / business account */}
-          <UserMenuItem href="/mypage/settings" name="設定">
-            <Cog6ToothIcon className="h-6 w-6 text-accent2"></Cog6ToothIcon>
-          </UserMenuItem>
           <UserMenuItem href="/signout" name="ログアウト">
             <ArrowLeftStartOnRectangleIcon className="h-6 w-6 text-accent2"></ArrowLeftStartOnRectangleIcon>
           </UserMenuItem>
