@@ -29,10 +29,11 @@ export default function ProfileForm({className = ''}) {
 
   return (
     <div className={`w-full md:border-l pb-8 sm:pb-14 lg:pb-20 md:px-16 border-accent2 ${className}`}>
-      <BackButton className="my-6"></BackButton>
-      <form method="post" className="max-w-md">
+      <BackButton className="my-6 absolute"></BackButton>
+      <h1 className="my-5 text-lg font-bold md:hidden text-center">アカウント</h1>
+      <form method="post" className="max-w-md mt-8 md:mt-12">
         {/* user icon */}
-        <div className="relative w-fit mx-auto md:mt-12">
+        <div className="relative w-fit mx-auto">
           {/* Profile image upload button */}
           <label
             htmlFor="profile-image"
@@ -76,16 +77,10 @@ export default function ProfileForm({className = ''}) {
             <ChangeEmail></ChangeEmail>
           </li>
           <li className="w-full">
-            <label className="block text-base font-bold" htmlFor="password">
-              パスワード
-            </label>
-            <input
-              className="text-sm mt-2 py-2 px-4 w-full block bg-transparent border border-accent2 rounded-md outline-none"
-              value="-------------"
-              type="password"
-              name="password"
-              id="password"
-            />
+            <p className="block text-base font-bold">パスワード</p>
+            <p className="text-sm mt-2 py-2 px-4 w-full block bg-transparent border border-accent2 rounded-md outline-none">
+              ••••••••••••
+            </p>
             <ChangePassword></ChangePassword>
           </li>
           <li>
