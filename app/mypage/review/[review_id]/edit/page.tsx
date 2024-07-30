@@ -65,7 +65,7 @@ export default function Page() {
                         >
                           いいえ
                         </button>
-                        {/* タスク：前ページに戻る */}
+                        {/* Todo：前ページに戻る */}
                         <button className="py-2 px-6 text-base bg-accent border border-accent text-white rounded-full">
                           はい
                         </button>
@@ -108,10 +108,10 @@ export default function Page() {
                               {Array.from({length: 5}, (_, index) => (
                                 <StarIcon key={index} className="h-5 w-5 text-textbk/30"></StarIcon>
                               ))}
-                              <span className='text-sm ml-1 font-bold'>3.5</span>
+                              <span className="text-sm ml-1 font-bold">3.5</span>
                             </div>
-                            <h4 className='text-base font-bold mb-1'>内容</h4>
-                            <p className='text-base'>クチコミの内容</p>
+                            <h4 className="text-base font-bold mb-1">内容</h4>
+                            <p className="text-base">クチコミの内容</p>
                           </div>
                         </ul>
                         <button

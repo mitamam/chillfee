@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
-// タスク：実装時削除
+// Todo：実装時削除
 import TestImage from '@/public/45f7044d45f7155c58f5aede2eddc83e.jpg'
 
 // pと画像の間は基本16pxでmd以上で24px

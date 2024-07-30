@@ -7,7 +7,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Pagination from '@/components/pagination'
 
-// タスク：実装時削除
+// Todo：実装時削除
 import Thumbnail from '@/public/45f7044d45f7155c58f5aede2eddc83e.jpg'
 
 export default function Page() {

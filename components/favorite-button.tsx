@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-import {BookmarkIcon} from '@heroicons/react/24/outline'
+import {HeartIcon} from '@heroicons/react/24/outline'
 
 export default function FavoriteButton({className = ''}) {
   const [isFavorite, setIsFavorite] = useState(false)
@@ -12,11 +12,11 @@ export default function FavoriteButton({className = ''}) {
   return (
     <>
       <button type="button" className={`z-10 w-5 h-5 ${className}`} onClick={handleClick}>
-        <BookmarkIcon
+        <HeartIcon
           className={`transition ease-in-out duration-100 ${isFavorite ? 'fill-accent' : 'fill-transparent'} ${
             isFavorite ? 'text-accent' : 'text-accent2'
           }`}
-        ></BookmarkIcon>
+        ></HeartIcon>
       </button>
     </>
   )
