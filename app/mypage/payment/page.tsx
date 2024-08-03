@@ -5,7 +5,7 @@ import ChangePaymentMethod from '@/components/change-payment-method'
 
 export default function Page() {
   return (
-    <div className="max-w-7xl px-5 lg:px-8 pt-24">
+    <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-24">
       <div className="flex items-start">
         {/* right menu */}
         <UserMenu className="md:w-1/4 hidden md:block"></UserMenu>
