@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
 import {StarIcon} from '@heroicons/react/24/outline'
+import BusinessReviewMenu from '@/components/business-review-menu'
 
 export default function Review() {
   const [showReplyForm, setShowReplyForm] = useState(false)
@@ -29,8 +30,12 @@ export default function Review() {
         これは口コミの内容です。これは口コミの内容です。これは口コミの内容です。これは口コミの内容です。
       </p>
       {/* Store replies (if any) */}
-      <div className="p-4 mt-3 bg-accent2/5 rounded-md">
-        <h3 className="text-sm font-bold mb-1">店舗からの返信</h3>
+      <div className="p-4 mt-3 bg-accent2/5 rounded-md relative">
+        <BusinessReviewMenu></BusinessReviewMenu>
+        <div className='flex items-center gap-3'>
+          <h3 className="text-sm font-bold mb-1">店舗からの返信</h3>
+          <span className="ml-2 block text-xs text-textbk/40">2024/01/01</span>
+        </div>
         <p className="text-sm">
           これは返信内容です。これは返信内容です。これは返信内容です。これは返信内容です。これは返信内容です。これは返信内容です。これは返信内容です。これは返信内容です。
         </p>
@@ -45,8 +50,12 @@ export default function Review() {
             cols={50}
             className="w-full p-2 border rounded-md"
           ></textarea>
-          <div className='flex items-center justify-end'>
-            <button type="button" className="mt-2 mr-4 px-2 py-2 text-sm rounded-md hover:bg-accent2/5" onClick={() => setShowReplyForm(false)}>
+          <div className="flex items-center justify-end">
+            <button
+              type="button"
+              className="mt-2 mr-4 px-2 py-2 text-sm rounded-md hover:bg-accent2/5"
+              onClick={() => setShowReplyForm(false)}
+            >
               キャンセル
             </button>
             <button className="mt-2 px-4 py-2 text-sm bg-accent2 text-white rounded-md">送信</button>

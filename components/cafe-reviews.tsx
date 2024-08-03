@@ -2,6 +2,14 @@ import {ChangeEvent, useState} from 'react'
 
 import Pagination from '@/components/pagination'
 import Review from '@/components/review'
+import SortBy from '@/components/sort-by'
+
+const options = [
+  '新着順',
+  '古い順',
+  '評価が高い順',
+  '評価が低い順'
+]
 
 export default function CafeReviews() {
   const [isOnlyReplied, setIsOnlyReplied] = useState(false)
@@ -13,6 +21,7 @@ export default function CafeReviews() {
   return (
     <>
       <div className="flex items-center justify-end gap-2 mt-8">
+        <SortBy options={options}></SortBy>
         <label htmlFor="only-replied" className="text-sm select-none">
           返信したクチコミのみ
         </label>
