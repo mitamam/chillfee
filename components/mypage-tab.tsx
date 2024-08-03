@@ -4,6 +4,7 @@ import {useRouter} from 'next/navigation'
 import {Tab, TabGroup, TabList, TabPanel, TabPanels} from '@headlessui/react'
 import CafeForm from '@/components/cafe-form'
 import Subscription from '@/components/subscription'
+import CafeReviews from '@/components/cafe-reviews'
 
 export default function MypageTab(props) {
   const router = useRouter()
@@ -43,7 +44,9 @@ export default function MypageTab(props) {
         <TabPanel>
           <Subscription></Subscription>
         </TabPanel>
-        <TabPanel></TabPanel>
+        <TabPanel>
+          <CafeReviews></CafeReviews>
+        </TabPanel>
         <TabPanel></TabPanel>
       </TabPanels>
     </TabGroup>

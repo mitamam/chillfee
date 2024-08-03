@@ -26,7 +26,7 @@ export default function MypageTop(props) {
           <span className="inline-block text-xs border border-accent2 rounded-full font-bold py-1 px-2">公開中</span>
           <div className="flex items-center gap-0.5 mt-4">
             {Array.from({length: 5}, (_, index) => (
-              <StarIcon className="h-5 w-5 text-textbk/30"></StarIcon>
+              <StarIcon key={index} className="h-5 w-5 text-textbk/30"></StarIcon>
             ))}
           </div>
         </div>
