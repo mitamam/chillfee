@@ -25,7 +25,7 @@ export default function Page() {
             {Array.from({length: 4}, (_, index) => (
               <li
                 key={index}
-                className="border border-accent2 w-full lg:max-w-[49%] max-w-md p-2 flex gap-4 justify-start items-center relative top-0 left-0"
+                className="border border-accent2 w-full lg:max-w-[48%] max-w-md p-2 flex gap-4 justify-start items-center relative top-0 left-0"
               >
                 <Link href="/cafes/1" className="absolute inset-0 z-10"></Link>
                 <div className="relative overflow-hidden w-24 pt-24 ">
