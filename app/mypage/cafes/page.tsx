@@ -16,7 +16,7 @@ export default function Page() {
         <UserMenu className="md:w-1/4 hidden md:block"></UserMenu>
         {/* left contents */}
         <div className="w-full md:w-3/4 md:border-l border-accent2 md:pl-8 pb-8 sm:pb-14 lg:pb-20">
-          <BackButton className="my-6 absolute"></BackButton>
+          <BackButton className="my-6 absolute md:hidden"></BackButton>
           <h1 className="my-5 text-lg font-bold md:hidden text-center">店舗一覧</h1>
           <div className="mb-4 md:mt-10 flex items-center justify-end">
             <Link href="/mypage/cafes/create" className="text-sm inline-block border border-accent2 py-2 px-4 rounded-full">

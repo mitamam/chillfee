@@ -11,7 +11,7 @@ import Thumbnail from '@/public/45f7044d45f7155c58f5aede2eddc83e.jpg'
 export default function MypageTop(props) {
   return (
     <>
-      <BackButton className="mt-6 absolute"></BackButton>
+      <BackButton className="mt-6 absolute md:hidden"></BackButton>
       <div className="flex justify-between items-center mt-16 md:mt-10">
         <div className="flex items-center gap-4">
           <div>
@@ -31,7 +31,7 @@ export default function MypageTop(props) {
           </div>
         </div>
       </div>
-      <MypageTab index={props.index}></MypageTab>
+      <MypageTab isDetailPage={props.isDetailPage} index={props.index}></MypageTab>
     </>
   )
 }

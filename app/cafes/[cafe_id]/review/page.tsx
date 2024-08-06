@@ -53,9 +53,12 @@ export default function Page() {
                   これは口コミの内容です。これは口コミの内容です。これは口コミの内容です。これは口コミの内容です。
                 </p>
                 {/* Store replies (if any) */}
-                <div className='p-4 mt-3 bg-accent2/5 rounded-md'>
-                  <h3 className='text-sm font-bold mb-1'>店舗からの返信</h3>
-                  <p className='text-sm'>
+                <div className="p-4 mt-3 bg-accent2/5 rounded-md">
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-sm font-bold mb-1">店舗からの返信</h3>
+                    <span className="ml-2 block text-xs text-textbk/40">2024/01/01</span>
+                  </div>
+                  <p className="text-sm">
                     これは返信内容です。これは返信内容です。これは返信内容です。これは返信内容です。これは返信内容です。これは返信内容です。これは返信内容です。これは返信内容です。
                   </p>
                 </div>

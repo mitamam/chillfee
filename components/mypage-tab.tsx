@@ -5,6 +5,7 @@ import {Tab, TabGroup, TabList, TabPanel, TabPanels} from '@headlessui/react'
 import CafeForm from '@/components/cafe-form'
 import Subscription from '@/components/subscription'
 import CafeReviews from '@/components/cafe-reviews'
+import CafeNews from '@/components/cafe-news'
 
 export default function MypageTab(props) {
   const router = useRouter()
@@ -47,7 +48,9 @@ export default function MypageTab(props) {
         <TabPanel>
           <CafeReviews></CafeReviews>
         </TabPanel>
-        <TabPanel></TabPanel>
+        <TabPanel>
+          <CafeNews isDetailPage={props.isDetailPage}></CafeNews>
+        </TabPanel>
       </TabPanels>
     </TabGroup>
   )

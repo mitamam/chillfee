@@ -29,7 +29,7 @@ export default function ProfileForm({className = ''}) {
 
   return (
     <div className={`w-full md:border-l pb-8 sm:pb-14 lg:pb-20 md:px-16 border-accent2 ${className}`}>
-      <BackButton className="my-6 absolute"></BackButton>
+      <BackButton className="my-6 absolute md:hidden"></BackButton>
       <h1 className="my-5 text-lg font-bold md:hidden text-center">アカウント</h1>
       <form method="post" className="max-w-md mt-8 md:mt-12">
         {/* user icon */}

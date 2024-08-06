@@ -11,7 +11,7 @@ export default function Page() {
         <UserMenu className="md:w-1/4 hidden md:block"></UserMenu>
         {/* left contents */}
         <div className="w-full md:w-3/4 lg:w-2/4 md:border-l border-accent2 md:pl-8 pb-8 sm:pb-14 lg:pb-20">
-          <BackButton className="mt-10 mb-6"></BackButton>
+          <BackButton className="mt-10 mb-6 md:hidden"></BackButton>
           <h2 className="mb-8 md:mt-10 text-lg font-bold">お支払い情報</h2>
           <h3 className="mb-4 text-base font-bold">お支払い方法</h3>
           {/* If payment information is not yet registered */}

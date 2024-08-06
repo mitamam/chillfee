@@ -19,7 +19,7 @@ export default function Page() {
         <UserMenu className="md:w-1/4 hidden md:block"></UserMenu>
         {/* left contents */}
         <div className="w-full md:border-l pb-8 sm:pb-14 lg:pb-20 md:px-16 border-accent2 md:w-3/4">
-          <BackButton className="my-6 absolute"></BackButton>
+          <BackButton className="my-6 absolute md:hidden"></BackButton>
           <h1 className="my-5 text-lg font-bold md:hidden text-center">投稿したクチコミ</h1>
           <ul className="mt-4 md:mt-8 mb-10 flex flex-col lg:flex-row flex-wrap items-center justify-between gap-4 lg:gap-y-5">
             {/* Todo：実装時削除 */}

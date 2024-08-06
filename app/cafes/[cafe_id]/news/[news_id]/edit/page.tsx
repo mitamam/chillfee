@@ -1,11 +1,20 @@
 'use client'
 
+import {useState} from 'react'
+import Link from 'next/link'
+
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import UploadImageButton from '@/components/upload-image'
 import AddTextImage from '@/components/add-text-image'
 
 export default function Page() {
+  const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(new Date())
+
   return (
     <>
       <Header />
@@ -31,19 +40,27 @@ export default function Page() {
             <h2 className="mt-6 block text-base">本文</h2>
             <AddTextImage></AddTextImage>
             <h2 className="mt-6 block text-base">公開期間</h2>
-            <div className="flex items-center gap-2">
-              <input
-                className="mt-2 py-2 px-4 block text-base border border-accent2 rounded-md outline-none"
-                type="datetime-local"
-                name="open-period"
-                id="open-period"
+            <div className="flex items-center gap-4">
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                selectsStart
+                startDate={startDate}
+                endDate={endDate}
+                showTimeInput
+                dateFormat="yyyy/MM/dd aa h:mm"
+                className="border border-accent2 text-base px-2 py-1 rounded-md outline-none"
               />
-              <span> ~ </span>
-              <input
-                className="mt-2 py-2 px-4 block text-base border border-accent2 rounded-md outline-none"
-                type="datetime-local"
-                name="close-period"
-                id="close-period"
+              <DatePicker
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+                selectsEnd
+                startDate={startDate}
+                endDate={endDate}
+                minDate={startDate}
+                showTimeInput
+                dateFormat="yyyy/MM/dd aa h:mm"
+                className="border border-accent2 text-base px-2 py-1 rounded-md outline-none"
               />
             </div>
             <div className="mt-12 flex items-center justify-center gap-6">
@@ -57,14 +74,15 @@ export default function Page() {
                 下書きを保存して終了
               </button>
               {/* 記事をプレビューボタン */}
-              <button
+              <Link
+                href='/cafes/1/news/1/edit/preview'
                 onClick={() => {
                   alert('記事のプレビューページに飛ぶ')
                 }}
                 className="py-3 px-6 text-nowrap bg-accent text-sm text-white rounded-full"
               >
                 記事をプレビュー
-              </button>
+              </Link>
             </div>
           </form>
         </div>

@@ -9,7 +9,7 @@ export default function DeleteNewsButton() {
     <>
       <button
         type="button"
-        className="block rounded-md text-sm underline mt-4"
+        className="block rounded-md text-sm underline mt-8"
         onClick={() => setIsDeleteDialogOpen(true)}
       >
         記事を削除
