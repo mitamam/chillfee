@@ -117,7 +117,7 @@ export default function Page() {
                 <ul className="flex justify-between gap-4 flex-col mt-4">
                   {/* 実装時削除↓ */}
                   {Array.from({length: 2}, (_, index) => (
-                    <li className="border border-accent2 flex flex-col">
+                    <li key={index} className="border border-accent2 flex flex-col">
                       <div className="p-6">
                         <div className="flex items-center gap-3">
                           <Image src={userIcon} className="rounded-full w-10 h-10" alt=""></Image>
@@ -125,7 +125,7 @@ export default function Page() {
                             <span className="block text-nowrap text-sm font-bold">ユーザー名</span>
                             <div className="flex items-center gap-0.5 mt-1">
                               {Array.from({length: 5}, (_, index) => (
-                                <StarIcon className="h-4 w-4 text-textbk/30"></StarIcon>
+                                <StarIcon key={index} className="h-4 w-4 text-textbk/30"></StarIcon>
                               ))}
                               <span className="ml-2 block text-xs text-textbk/40">2024/01/01</span>
                             </div>

@@ -24,13 +24,13 @@ export default function Page() {
           <ul className="mt-4 md:mt-8 mb-10 flex flex-col lg:flex-row flex-wrap items-center justify-between gap-4 lg:gap-y-5">
             {/* Todo：実装時削除 */}
             {Array.from({length: 4}, (_, index) => (
-              <li className="border border-accent2 lg:max-w-[48%] p-6">
+              <li key={index} className="border border-accent2 lg:max-w-[48%] p-6">
                 <div className="flex justify-between items-center relative">
                   <div className="flex items-center">
                     <span className="mr-2 block text-xs text-textbk/40">2024/1/1</span>
                     <div className="flex items-center gap-0.5">
                       {Array.from({length: 5}, (_, index) => (
-                        <StarIcon className="h-4 w-4 text-textbk/30"></StarIcon>
+                        <StarIcon key={index} className="h-4 w-4 text-textbk/30"></StarIcon>
                       ))}
                     </div>
                   </div>

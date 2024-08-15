@@ -26,7 +26,7 @@ export default function Page() {
           </div>
           <ul className="mt-4 mb-10 flex flex-col lg:flex-row flex-wrap items-center justify-between gap-4 lg:gap-y-5">
             {Array.from({length: 6}, (_, index) => (
-              <li className="border border-accent2 flex flex-col lg:max-w-[49%] p-6">
+              <li key={index} className="border border-accent2 flex flex-col lg:max-w-[49%] p-6">
                 {/* top content */}
                 <div className="flex justify-between">
                   <div className="flex items-center gap-3">
@@ -35,7 +35,7 @@ export default function Page() {
                       <span className="block text-nowrap text-sm font-bold">ユーザー名</span>
                       <div className="flex items-center gap-0.5 mt-1">
                         {Array.from({length: 5}, (_, index) => (
-                          <StarIcon className="h-4 w-4 text-textbk/30"></StarIcon>
+                          <StarIcon key={index} className="h-4 w-4 text-textbk/30"></StarIcon>
                         ))}
                         <span className="ml-2 block text-xs text-textbk/40">2024/01/01</span>
                       </div>

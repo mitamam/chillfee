@@ -46,7 +46,7 @@ export default function CafeReviews() {
       </div>
       <ul className="mt-4 mb-10 flex flex-col lg:flex-row flex-wrap items-start justify-between gap-4 lg:gap-y-5">
         {Array.from({length: 6}, (_, index) => (
-          <Review></Review>
+          <Review key={index}></Review>
         ))}
       </ul>
       <Pagination></Pagination>

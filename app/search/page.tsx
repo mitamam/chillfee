@@ -279,7 +279,7 @@ export default function Page() {
               <ul className="mb-10 flex flex-row flex-wrap justify-between lg:flex-col gap-4 mt-4 lg:ml-20">
                 {/* 実装時削除↓ */}
                 {Array.from({length: 4}, (_, index) => (
-                  <li className="sm:max-w-[48%] lg:max-w-full relative">
+                  <li key={index} className="sm:max-w-[48%] lg:max-w-full relative">
                     <div className="py-6 px-8 flex flex-col lg:gap-8 lg:flex-row border border-accent2 rounded-lg">
                       <Link href="/cafes/1" className="absolute inset-0 z-10"></Link>
                       <div>

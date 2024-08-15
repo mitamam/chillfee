@@ -20,7 +20,7 @@ export default function Review() {
         {/* Reply button */}
         <div className="flex items-center gap-0.5 mt-1">
           {Array.from({length: 5}, (_, index) => (
-            <StarIcon className="h-4 w-4 text-textbk/30"></StarIcon>
+            <StarIcon key={index} className="h-4 w-4 text-textbk/30"></StarIcon>
           ))}
           <span className="ml-2 block text-xs text-textbk/40">2024/01/01</span>
         </div>

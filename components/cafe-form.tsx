@@ -115,8 +115,8 @@ export default function CafeForm({isPersonal = true, className = ''}) {
           <h2 className="mt-12 text-lg font-bold">タグ</h2>
           <h3 className="mt-4 text-base">環境</h3>
           <ul className="mt-2 flex items-center gap-2">
-            {envTags.map((tag) => (
-              <li>
+            {envTags.map((tag, index) => (
+              <li key={index}>
                 <label
                   htmlFor={tag.id}
                   className="cursor-pointer rounded-full
@@ -137,8 +137,8 @@ export default function CafeForm({isPersonal = true, className = ''}) {
           </ul>
           <h3 className="mt-4 text-base">設備</h3>
           <ul className="mt-2 flex items-center gap-2">
-            {facilityTags.map((tag) => (
-              <li>
+            {facilityTags.map((tag, index) => (
+              <li key={index}>
                 <label
                   htmlFor={tag.id}
                   className="cursor-pointer rounded-full

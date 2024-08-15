@@ -19,7 +19,7 @@ export default function Page() {
           <h2 className="text-xl font-bold mt-10 lg:mt-14">新着情報</h2>
           <ul className="my-10 flex flex-wrap gap-x-4 gap-y-6 lg:gap-x-8 lg:gap-y-10">
             {Array.from({length: 7}, (_, index) => (
-              <li className="w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] md:w-[calc(25%-12px)] lg:w-[calc(25%-24px)] border border-accent2">
+              <li key={index} className="w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] md:w-[calc(25%-12px)] lg:w-[calc(25%-24px)] border border-accent2">
                 <Link href="/cafes/1/news/1" className="block p-4 lg:p-6">
                   <div className="relative w-full pt-[100%] overflow-hidden">
                     <Image src={Thumbnail} alt="" layout="fill" objectFit="cover"></Image>
