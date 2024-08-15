@@ -22,7 +22,7 @@ const config: Config = {
     }
   },
   plugins: [
-    function({ addUtilities }) {
+    function({ addUtilities }: {addUtilities: any}) {
       const newUtilities = {
         '.backface-hidden': {
           '-webkit-backface-visibility': 'hidden',
