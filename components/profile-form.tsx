@@ -6,7 +6,6 @@ import Image from 'next/image'
 import {PencilSquareIcon} from '@heroicons/react/24/outline'
 import BackButton from '@/components/back-button'
 import ChangePassword from '@/components/change-password'
-import ChangeEmail from '@/components/change-password'
 import DeleteAccountButton from '@/components/delete-account-button'
 
 export default function ProfileForm({className = ''}) {
@@ -74,7 +73,6 @@ export default function ProfileForm({className = ''}) {
               name="email"
               id="email"
             />
-            <ChangeEmail></ChangeEmail>
           </li>
           <li className="w-full">
             <p className="block text-base font-bold">パスワード</p>
