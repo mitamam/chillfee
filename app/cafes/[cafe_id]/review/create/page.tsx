@@ -106,7 +106,7 @@ export default function Page() {
                             <h4 className="text-base font-bold mb-1">評価</h4>
                             <div className="flex items-center gap-0.5 mb-4">
                               {Array.from({length: 5}, (_, index) => (
-                                <StarIcon className="h-5 w-5 text-textbk/30"></StarIcon>
+                                <StarIcon key={index} className="h-5 w-5 text-textbk/30"></StarIcon>
                               ))}
                               <span className="text-sm ml-1 font-bold">3.5</span>
                             </div>
